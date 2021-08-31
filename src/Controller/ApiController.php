@@ -21,7 +21,7 @@ class ApiController extends AbstractController
         return $this->json($liste);
     }
     /**
-     * @Route("/api/course/", name="api_ajouter", methods={"POST"})
+     * @Route("/api/course", name="api_ajouter", methods={"POST"})
      */
     public function ajouter(Request $req, EntityManagerInterface $em): Response
     {
@@ -42,8 +42,8 @@ class ApiController extends AbstractController
     {
         $object = json_decode($req -> getContent());
 
-        $article->setName($object->name);
-        $article->setIsChecked($object->isChecked);
+        
+        $article->setIsChecked(!$article->getIsChecked());
         $em->flush();
         
         return $this->json($article);

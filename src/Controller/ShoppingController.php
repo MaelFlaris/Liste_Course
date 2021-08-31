@@ -13,7 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class ShoppingController extends AbstractController
 {
     /**
-     * @Route("/shopping-list", name="liste")
+     * @Route("/", name="liste")
      */
     public function liste(ArticleRepository $repo): Response
     {
